@@ -2,27 +2,22 @@
 	<div id="app">
 		<div id="nav">
 			<router-link to="/">Home</router-link> |
-			<router-link :to="{name: 'Admin'}">Admin</router-link>
+			<router-link :to="{name: 'Admin'}">Admin</router-link> |
+      <router-link :to="{name: 'Login'}">Login</router-link>
 		</div>
 		<router-view />
 	</div>
 </template>
 
 <script>
-import firebase from "firebase";
+import Login from '@/components/Login.vue'
+
 export default {
-  mounted() {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword("maria@gmail.com", "123456789")
-      .then((user) => this.$store.dispatch('setUser', user.user))
-      .catch(function (error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorMessage)
-      });
-  },
-};
+  name: 'App',
+  components: {
+    Login
+  }
+}
 </script>
 
 <style>

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import Login from "../components/Login.vue";
 import firebase from 'firebase';
 
 Vue.use(VueRouter);
@@ -18,6 +19,11 @@ const routes = [
 		meta: {
 			login: true,
 		},
+	},
+	{
+		path: '/login',
+		name: 'Login',
+		component: Login,
 	},
 ];
 
